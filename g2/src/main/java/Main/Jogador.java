@@ -1,4 +1,4 @@
-
+/* Classe jogador para controle e padronização de variaveis de moedas*/
 package Main;
 
 
