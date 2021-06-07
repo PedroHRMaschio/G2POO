@@ -4,7 +4,7 @@
  * and open the template in the editor.
  */
 package Main;
-
+import java.util.Scanner;
 /**
  *
  * @author pedro
@@ -15,8 +15,10 @@ public class Main {
      * @param args the command line arguments
      */
     public static void main(String[] args) {
+        Scanner jogada = new Scanner(System.in);
         Aleatorio aleatorio = new Aleatorio();
         VistaGrossa vistagrossa = new VistaGrossa();
+        Jogador jogador = new Jogador();
         int rodadas = 5;
         boolean jogada1 = false;
         boolean jogada2 = false;

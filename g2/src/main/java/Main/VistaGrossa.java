@@ -2,7 +2,7 @@ package Main;
 
 public class VistaGrossa {
     int contador = 0;
-    int moedas = 0;
+    int moedas = 1;
     String nome = "Vista Grossa";
     
     public boolean GetJogada(boolean jogada_inimiga) {
