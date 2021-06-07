@@ -8,7 +8,7 @@ public class Jogador {
     int moedas = 1;
     
     
-    public boolean decisao(String escolha){
+    public boolean Decisao(String escolha){
         if("1".equals(escolha)){
             return true;
         }
