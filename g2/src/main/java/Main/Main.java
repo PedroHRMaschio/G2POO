@@ -47,6 +47,8 @@ public class Main {
         System.out.println(jogador.nome+": "+jogador.moedas+"          "+aleatorio.nome+": "+aleatorio.moedas);
         System.out.println("Próxima partida......\n\n");
         jogador.moedas = 1;
+        jogada1 = true;
+        jogada2 = true;
         /*Partida contra o vista grossa*/        
         for(int i = 0; i < rodadas; ++i){
             System.out.println("Rodada: "+(i+1));
@@ -54,8 +56,9 @@ public class Main {
             System.out.println(jogador.nome+": "+jogador.moedas+"          "+vistagrossa.nome+": "+vistagrossa.moedas);
             System.out.println("Sua jogada:");
             String decisao = jogada.next();
-            jogada1 = jogador.Decisao(decisao);
             jogada2 = vistagrossa.GetJogada(jogada1);
+            jogada1 = jogador.Decisao(decisao);
+            
             if(jogada1){
                 if(jogada2){
                     jogador.moedas = jogador.moedas + 2;
