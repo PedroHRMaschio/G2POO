@@ -96,17 +96,11 @@
       <Properties>
         <Property name="text" type="java.lang.String" value="Jogada Jogador"/>
       </Properties>
-      <Events>
-        <EventHandler event="inputMethodTextChanged" listener="java.awt.event.InputMethodListener" parameters="java.awt.event.InputMethodEvent" handler="LblJogadajogadorInputMethodTextChanged"/>
-      </Events>
     </Component>
     <Component class="javax.swing.JLabel" name="LblJogadaAdveressario">
       <Properties>
         <Property name="text" type="java.lang.String" value="Jogada Adverss&#xe1;rio"/>
       </Properties>
-      <Events>
-        <EventHandler event="inputMethodTextChanged" listener="java.awt.event.InputMethodListener" parameters="java.awt.event.InputMethodEvent" handler="LblJogadaAdveressarioInputMethodTextChanged"/>
-      </Events>
     </Component>
     <Component class="javax.swing.JLabel" name="LblMoedasJogador">
       <Properties>
@@ -115,9 +109,6 @@
         </Property>
         <Property name="text" type="java.lang.String" value="Moedas Jogador"/>
       </Properties>
-      <Events>
-        <EventHandler event="inputMethodTextChanged" listener="java.awt.event.InputMethodListener" parameters="java.awt.event.InputMethodEvent" handler="LblMoedasJogadorInputMethodTextChanged"/>
-      </Events>
     </Component>
     <Component class="javax.swing.JLabel" name="LblMoedasAdverssario">
       <Properties>
@@ -126,9 +117,6 @@
         </Property>
         <Property name="text" type="java.lang.String" value="Moedas Adverss&#xe1;rio"/>
       </Properties>
-      <Events>
-        <EventHandler event="inputMethodTextChanged" listener="java.awt.event.InputMethodListener" parameters="java.awt.event.InputMethodEvent" handler="LblMoedasAdverssarioInputMethodTextChanged"/>
-      </Events>
     </Component>
     <Component class="javax.swing.JLabel" name="LblVfx">
     </Component>

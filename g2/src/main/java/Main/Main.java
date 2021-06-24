@@ -61,42 +61,14 @@ public class Main extends javax.swing.JFrame {
         });
 
         LblJogadajogador.setText("Jogada Jogador");
-        LblJogadajogador.addInputMethodListener(new java.awt.event.InputMethodListener() {
-            public void caretPositionChanged(java.awt.event.InputMethodEvent evt) {
-            }
-            public void inputMethodTextChanged(java.awt.event.InputMethodEvent evt) {
-                LblJogadajogadorInputMethodTextChanged(evt);
-            }
-        });
 
         LblJogadaAdveressario.setText("Jogada Adverssário");
-        LblJogadaAdveressario.addInputMethodListener(new java.awt.event.InputMethodListener() {
-            public void caretPositionChanged(java.awt.event.InputMethodEvent evt) {
-            }
-            public void inputMethodTextChanged(java.awt.event.InputMethodEvent evt) {
-                LblJogadaAdveressarioInputMethodTextChanged(evt);
-            }
-        });
 
         LblMoedasJogador.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         LblMoedasJogador.setText("Moedas Jogador");
-        LblMoedasJogador.addInputMethodListener(new java.awt.event.InputMethodListener() {
-            public void caretPositionChanged(java.awt.event.InputMethodEvent evt) {
-            }
-            public void inputMethodTextChanged(java.awt.event.InputMethodEvent evt) {
-                LblMoedasJogadorInputMethodTextChanged(evt);
-            }
-        });
 
         LblMoedasAdverssario.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         LblMoedasAdverssario.setText("Moedas Adverssário");
-        LblMoedasAdverssario.addInputMethodListener(new java.awt.event.InputMethodListener() {
-            public void caretPositionChanged(java.awt.event.InputMethodEvent evt) {
-            }
-            public void inputMethodTextChanged(java.awt.event.InputMethodEvent evt) {
-                LblMoedasAdverssarioInputMethodTextChanged(evt);
-            }
-        });
 
         LblRodada.setText("Rodada:");
         LblRodada.addInputMethodListener(new java.awt.event.InputMethodListener() {
@@ -155,28 +127,14 @@ public class Main extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void LblMoedasJogadorInputMethodTextChanged(java.awt.event.InputMethodEvent evt) {//GEN-FIRST:event_LblMoedasJogadorInputMethodTextChanged
-        // TODO add your handling code here:
-    }//GEN-LAST:event_LblMoedasJogadorInputMethodTextChanged
-
-    private void LblMoedasAdverssarioInputMethodTextChanged(java.awt.event.InputMethodEvent evt) {//GEN-FIRST:event_LblMoedasAdverssarioInputMethodTextChanged
-        // TODO add your handling code here:
-    }//GEN-LAST:event_LblMoedasAdverssarioInputMethodTextChanged
-
-    private void LblJogadajogadorInputMethodTextChanged(java.awt.event.InputMethodEvent evt) {//GEN-FIRST:event_LblJogadajogadorInputMethodTextChanged
-        // TODO add your handling code here:
-    }//GEN-LAST:event_LblJogadajogadorInputMethodTextChanged
-
-    private void LblJogadaAdveressarioInputMethodTextChanged(java.awt.event.InputMethodEvent evt) {//GEN-FIRST:event_LblJogadaAdveressarioInputMethodTextChanged
-        // TODO add your handling code here:
-    }//GEN-LAST:event_LblJogadaAdveressarioInputMethodTextChanged
-
     private void BtnFalseMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_BtnFalseMouseClicked
         jogada1 = false;
+        this.LblJogadajogador.setText("Não Colocou a moeda");
     }//GEN-LAST:event_BtnFalseMouseClicked
 
     private void BtnTrueMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_BtnTrueMouseClicked
         jogada1 = true;
+        this.LblJogadajogador.setText("Colocou a moeda");
     }//GEN-LAST:event_BtnTrueMouseClicked
 
     private void LblRodadaInputMethodTextChanged(java.awt.event.InputMethodEvent evt) {//GEN-FIRST:event_LblRodadaInputMethodTextChanged
@@ -187,25 +145,7 @@ public class Main extends javax.swing.JFrame {
      * @param args the command line arguments
      */
     public static void main(String args[]) {
-        /**
         
-        jogada2 = vistagrossa.GetJogada(jogada1);
-        jogada1 = BtnTrueMouseClicked;
-
-        if(jogada1){
-            if(jogada2){
-                jogador.moedas = jogador.moedas + 2;
-                vistagrossa.moedas = vistagrossa.moedas + 2;
-            }else{
-                jogador.moedas = jogador.moedas - 1;
-                vistagrossa.moedas = vistagrossa.moedas + 3;
-            }
-        }else{
-            if(jogada2){
-                jogador.moedas = jogador.moedas + 3;
-                vistagrossa.moedas = vistagrossa.moedas - 1;
-            }
-        }
         /* Set the Nimbus look and feel */
         //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
         /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
