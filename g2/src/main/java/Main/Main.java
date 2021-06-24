@@ -12,7 +12,7 @@ package Main;
 public class Main extends javax.swing.JFrame {
     boolean jogada1;
     boolean jogada2;
-    int rodadas = 5;
+    int rodadas = 1;
     Aleatorio aleatorio = new Aleatorio();
     VistaGrossa vistagrossa = new VistaGrossa();
     SempreRouba semprerouba = new SempreRouba();
@@ -38,11 +38,12 @@ public class Main extends javax.swing.JFrame {
         BtnTrue = new javax.swing.JButton();
         BtnFalse = new javax.swing.JButton();
         LblJogadajogador = new javax.swing.JLabel();
-        LblJogadaAdveressario = new javax.swing.JLabel();
+        LblJogadaAdverssario = new javax.swing.JLabel();
         LblMoedasJogador = new javax.swing.JLabel();
         LblMoedasAdverssario = new javax.swing.JLabel();
         LblVfx = new javax.swing.JLabel();
         LblRodada = new javax.swing.JLabel();
+        BtnStart = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -62,7 +63,7 @@ public class Main extends javax.swing.JFrame {
 
         LblJogadajogador.setText("Jogada Jogador");
 
-        LblJogadaAdveressario.setText("Jogada Adverssário");
+        LblJogadaAdverssario.setText("Jogada Adverssário");
 
         LblMoedasJogador.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         LblMoedasJogador.setText("Moedas Jogador");
@@ -79,6 +80,13 @@ public class Main extends javax.swing.JFrame {
             }
         });
 
+        BtnStart.setText("Start");
+        BtnStart.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                BtnStartMouseClicked(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -90,7 +98,10 @@ public class Main extends javax.swing.JFrame {
             .addGroup(layout.createSequentialGroup()
                 .addGap(110, 110, 110)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(BtnTrue)
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(BtnTrue)
+                        .addGap(86, 86, 86)
+                        .addComponent(BtnStart))
                     .addComponent(LblJogadajogador)
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(LblMoedasJogador, javax.swing.GroupLayout.PREFERRED_SIZE, 129, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -99,7 +110,7 @@ public class Main extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 65, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(BtnFalse, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(LblJogadaAdveressario)
+                    .addComponent(LblJogadaAdverssario)
                     .addComponent(LblMoedasAdverssario, javax.swing.GroupLayout.PREFERRED_SIZE, 1, Short.MAX_VALUE))
                 .addGap(107, 107, 107))
         );
@@ -116,11 +127,12 @@ public class Main extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 179, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(BtnTrue)
-                    .addComponent(BtnFalse))
+                    .addComponent(BtnFalse)
+                    .addComponent(BtnStart))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(LblJogadajogador)
-                    .addComponent(LblJogadaAdveressario))
+                    .addComponent(LblJogadaAdverssario))
                 .addGap(46, 46, 46))
         );
 
@@ -141,10 +153,15 @@ public class Main extends javax.swing.JFrame {
         
     }//GEN-LAST:event_LblRodadaInputMethodTextChanged
 
+    private void BtnStartMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_BtnStartMouseClicked
+        this.Game();
+    }//GEN-LAST:event_BtnStartMouseClicked
+
     /**
      * @param args the command line arguments
      */
     public static void main(String args[]) {
+        
         
         /* Set the Nimbus look and feel */
         //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
@@ -173,15 +190,49 @@ public class Main extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new Main().setVisible(true);
+                new Main().setVisible(true); 
             }
         });
     }
+    
+    public void Game(){
+        for(int i=0 ;rodadas> i ;i++){
+            //jogada1 = this.BtnTrue||this.BtnFalse;
+            jogada2 = aleatorio.GetJogada();
+            if(jogada2 == true){
+                this.LblJogadaAdverssario.setText("Colocou a moeda");
+                if(jogada1 == true){
+                    jogador.moedas = jogador.moedas +2;
+                    aleatorio.moedas = aleatorio.moedas +2;
+                    this.LblMoedasJogador.setText("Moedas: "+jogador.moedas);
+                    this.LblMoedasAdverssario.setText("Moedas: "+aleatorio.moedas);
+                }
+                else{
+                    jogador.moedas = jogador.moedas +3;
+                    aleatorio.moedas = aleatorio.moedas -1;
+                    this.LblMoedasJogador.setText("Moedas: "+jogador.moedas);
+                    this.LblMoedasAdverssario.setText("Moedas: "+aleatorio.moedas);
+                }
+            }
+            else{
+                this.LblJogadaAdverssario.setText("Não Colocou a moeda");
+                if(jogada1 == true){
+                    jogador.moedas = jogador.moedas -1;
+                    aleatorio.moedas = aleatorio.moedas +3;
+                    this.LblMoedasJogador.setText("Moedas: "+jogador.moedas);
+                    this.LblMoedasAdverssario.setText("Moedas: "+aleatorio.moedas);
+                } 
+            }
+        }
+    }
+    
+    
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton BtnFalse;
+    private javax.swing.JButton BtnStart;
     private javax.swing.JButton BtnTrue;
-    private javax.swing.JLabel LblJogadaAdveressario;
+    private javax.swing.JLabel LblJogadaAdverssario;
     private javax.swing.JLabel LblJogadajogador;
     private javax.swing.JLabel LblMoedasAdverssario;
     private javax.swing.JLabel LblMoedasJogador;

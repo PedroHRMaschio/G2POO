@@ -31,7 +31,11 @@
           <Group type="102" alignment="0" attributes="0">
               <EmptySpace min="-2" pref="110" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="0" attributes="0">
-                  <Component id="BtnTrue" alignment="0" min="-2" max="-2" attributes="0"/>
+                  <Group type="102" alignment="0" attributes="0">
+                      <Component id="BtnTrue" min="-2" max="-2" attributes="0"/>
+                      <EmptySpace min="-2" pref="86" max="-2" attributes="0"/>
+                      <Component id="BtnStart" min="-2" max="-2" attributes="0"/>
+                  </Group>
                   <Component id="LblJogadajogador" alignment="0" min="-2" max="-2" attributes="0"/>
                   <Group type="102" alignment="0" attributes="0">
                       <Component id="LblMoedasJogador" min="-2" pref="129" max="-2" attributes="0"/>
@@ -42,7 +46,7 @@
               <EmptySpace pref="65" max="32767" attributes="0"/>
               <Group type="103" groupAlignment="0" max="-2" attributes="0">
                   <Component id="BtnFalse" max="32767" attributes="0"/>
-                  <Component id="LblJogadaAdveressario" min="-2" max="-2" attributes="0"/>
+                  <Component id="LblJogadaAdverssario" min="-2" max="-2" attributes="0"/>
                   <Component id="LblMoedasAdverssario" pref="0" max="32767" attributes="0"/>
               </Group>
               <EmptySpace min="-2" pref="107" max="-2" attributes="0"/>
@@ -64,11 +68,12 @@
               <Group type="103" groupAlignment="3" attributes="0">
                   <Component id="BtnTrue" alignment="3" min="-2" max="-2" attributes="0"/>
                   <Component id="BtnFalse" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="BtnStart" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
               <EmptySpace max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
                   <Component id="LblJogadajogador" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="LblJogadaAdveressario" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="LblJogadaAdverssario" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
               <EmptySpace min="-2" pref="46" max="-2" attributes="0"/>
           </Group>
@@ -97,7 +102,7 @@
         <Property name="text" type="java.lang.String" value="Jogada Jogador"/>
       </Properties>
     </Component>
-    <Component class="javax.swing.JLabel" name="LblJogadaAdveressario">
+    <Component class="javax.swing.JLabel" name="LblJogadaAdverssario">
       <Properties>
         <Property name="text" type="java.lang.String" value="Jogada Adverss&#xe1;rio"/>
       </Properties>
@@ -126,6 +131,14 @@
       </Properties>
       <Events>
         <EventHandler event="inputMethodTextChanged" listener="java.awt.event.InputMethodListener" parameters="java.awt.event.InputMethodEvent" handler="LblRodadaInputMethodTextChanged"/>
+      </Events>
+    </Component>
+    <Component class="javax.swing.JButton" name="BtnStart">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Start"/>
+      </Properties>
+      <Events>
+        <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="BtnStartMouseClicked"/>
       </Events>
     </Component>
   </SubComponents>
