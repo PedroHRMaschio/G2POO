@@ -6,8 +6,7 @@ package Main;
 public class Jogador {
     String nome = "Jogador";
     int moedas = 1;
-    
-    
+
     public boolean Decisao(String escolha){
         if("1".equals(escolha)){
             return true;
@@ -16,12 +15,5 @@ public class Jogador {
             return false;
         }
         return false;
-    }
-    
-    
-    
-    
-    
-    
-    
+    }   
 }

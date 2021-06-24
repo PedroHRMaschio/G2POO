@@ -12,7 +12,7 @@ public class VistaGrossa {
     public boolean GetJogada(boolean jogada_inimiga) {
         if(jogada_inimiga) {
             return true;
-        }else if(contador < 2) {
+        }else if(contador < 1) {
             contador = contador + 1;
             return true;
         }else {

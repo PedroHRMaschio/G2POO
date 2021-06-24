@@ -11,6 +11,8 @@ package Main;
  */
 public class GameVisual extends javax.swing.JFrame {
 
+    boolean jogada1;
+    boolean jogada2;
     /**
      * Creates new form GameVisual
      */
@@ -34,10 +36,18 @@ public class GameVisual extends javax.swing.JFrame {
         LblMoedasJogador = new javax.swing.JLabel();
         LblMoedasAdverssario = new javax.swing.JLabel();
         jLabel1 = new javax.swing.JLabel();
+        javax.swing.JLabel moedas_jogador = new javax.swing.JLabel();
+        moedas_adverssario = new javax.swing.JLabel();
+        jLabel2 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
         BtnTrue.setText("Colocar Moeda");
+        BtnTrue.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                BtnTrueMouseClicked(evt);
+            }
+        });
         BtnTrue.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 BtnTrueActionPerformed(evt);
@@ -74,6 +84,7 @@ public class GameVisual extends javax.swing.JFrame {
             }
         });
 
+        LblMoedasJogador.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         LblMoedasJogador.setText("Moedas Jogador");
         LblMoedasJogador.addInputMethodListener(new java.awt.event.InputMethodListener() {
             public void caretPositionChanged(java.awt.event.InputMethodEvent evt) {
@@ -83,6 +94,7 @@ public class GameVisual extends javax.swing.JFrame {
             }
         });
 
+        LblMoedasAdverssario.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         LblMoedasAdverssario.setText("Moedas Adverssário");
         LblMoedasAdverssario.addInputMethodListener(new java.awt.event.InputMethodListener() {
             public void caretPositionChanged(java.awt.event.InputMethodEvent evt) {
@@ -94,37 +106,62 @@ public class GameVisual extends javax.swing.JFrame {
 
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Main/evolução_da_confiança.png"))); // NOI18N
 
+        moedas_jogador.setText(jogador.moedas);
+
+        moedas_adverssario.setText(adversario.moedas);
+
+        jLabel2.setText("Rodada:");
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(110, 110, 110)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(LblMoedasJogador, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(BtnTrue, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(LblJogadajogador))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(BtnFalse, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(LblJogadaAdveressario)
-                    .addComponent(LblMoedasAdverssario, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addGap(107, 107, 107))
-            .addGroup(layout.createSequentialGroup()
-                .addGap(142, 142, 142)
+                .addGap(161, 161, 161)
                 .addComponent(jLabel1)
-                .addContainerGap(186, Short.MAX_VALUE))
+                .addGap(0, 0, Short.MAX_VALUE))
+            .addGroup(layout.createSequentialGroup()
+                .addGap(110, 110, 110)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(BtnTrue)
+                    .addComponent(LblJogadajogador)
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(LblMoedasJogador, javax.swing.GroupLayout.PREFERRED_SIZE, 129, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(36, 36, 36)
+                        .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(28, 28, 28)
+                        .addComponent(moedas_jogador)))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 61, Short.MAX_VALUE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(BtnFalse, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(LblJogadaAdveressario)
+                            .addComponent(LblMoedasAdverssario, javax.swing.GroupLayout.PREFERRED_SIZE, 1, Short.MAX_VALUE))
+                        .addGap(107, 107, 107))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addComponent(moedas_adverssario)
+                        .addGap(151, 151, 151))))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(LblMoedasJogador, javax.swing.GroupLayout.DEFAULT_SIZE, 37, Short.MAX_VALUE)
-                    .addComponent(LblMoedasAdverssario, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addGap(42, 42, 42)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(LblMoedasAdverssario, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(LblMoedasJogador, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(jLabel2)
+                        .addGap(0, 0, Short.MAX_VALUE)))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(moedas_jogador, javax.swing.GroupLayout.PREFERRED_SIZE, 14, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(moedas_adverssario))
+                .addGap(49, 49, 49)
                 .addComponent(jLabel1)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 54, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 33, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(BtnTrue)
                     .addComponent(BtnFalse))
@@ -165,6 +202,10 @@ public class GameVisual extends javax.swing.JFrame {
     private void LblJogadaAdveressarioInputMethodTextChanged(java.awt.event.InputMethodEvent evt) {//GEN-FIRST:event_LblJogadaAdveressarioInputMethodTextChanged
         // TODO add your handling code here:
     }//GEN-LAST:event_LblJogadaAdveressarioInputMethodTextChanged
+
+    private void BtnTrueMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_BtnTrueMouseClicked
+        jogada1 = true;
+    }//GEN-LAST:event_BtnTrueMouseClicked
 
     /**
      * @param args the command line arguments
@@ -209,5 +250,7 @@ public class GameVisual extends javax.swing.JFrame {
     private javax.swing.JLabel LblMoedasAdverssario;
     private javax.swing.JLabel LblMoedasJogador;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel moedas_adverssario;
     // End of variables declaration//GEN-END:variables
 }
